@@ -4,6 +4,7 @@ import { jwtDecode } from 'jwt-decode';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Cart = () => {
+  const url=https://evkarya-backend-iwsx.onrender.com;
   const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Cart = () => {
       try {
         const decoded = jwtDecode(token);
       console.log("Decoded user:", decoded);
-        const res = await axios.get(`http://localhost:5002/api/cart/cart`, {
+        const res = await axios.get(`url/api/cart/cart`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setCart(res.data.cart);
@@ -37,7 +38,7 @@ const Cart = () => {
   const updateQuantity = async (itemId, newQty) => {
     if (newQty < 1) return;
     try {
-      await axios.put(`http://localhost:5002/api/cart/update-item/${itemId}`, { quantity: newQty }, {
+      await axios.put(`url/api/cart/update-item/${itemId}`, { quantity: newQty }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCart((prev) => ({
@@ -51,7 +52,7 @@ const Cart = () => {
 
   const removeItem = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:5002/api/cart/remove-item/${itemId}`, {
+      await axios.delete(`url/api/cart/remove-item/${itemId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCart((prev) => ({
