@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Product = () => {
-  const url=https://evkarya-backend-iwsx.onrender.com;
+  const url="https://evkarya-backend-iwsx.onrender.com";
   const [categories, setCategories] = useState([]);
   const [posts, setPosts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -14,7 +14,7 @@ const Product = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get("url/api/posts/categories");
+        const res = await axios.get("${url}/api/posts/categories");
         setCategories(res.data);
       } catch (err) {
         console.error("Failed to load categories", err);
@@ -35,7 +35,7 @@ const Product = () => {
       setErrorPosts(null); // Reset error
 
       try {
-        const res = await axios.get(`url/api/posts?category=${selectedCategory}`);
+        const res = await axios.get(`${url}/api/posts?category=${selectedCategory}`);
         setPosts(res.data);
       } catch (err) {
         setErrorPosts("Failed to fetch posts. Please try again later.");
