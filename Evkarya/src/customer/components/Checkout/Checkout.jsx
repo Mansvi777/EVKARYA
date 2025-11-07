@@ -3,14 +3,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Checkout = () => {
-  const url=https://evkarya-backend-iwsx.onrender.com;
+  const url="https://evkarya-backend-iwsx.onrender.com";
   const location = useLocation();
   const navigate = useNavigate();
   const { product, user } = location.state || {};
 
   const handleConfirmBooking = async () => {
     try {
-      const res = await axios.post("url/api/bookings", {
+      const res = await axios.post("${url}/api/bookings", {
         productId: product._id,
         userId: user.id,
         userName: user.name,
