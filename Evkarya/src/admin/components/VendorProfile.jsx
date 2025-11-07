@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const VendorProfile = () => {
+  const url=https://evkarya-backend-iwsx.onrender.com;
   const vendorId = localStorage.getItem("vendorId");
   const [vendor, setVendor] = useState(null);
   const [formData, setFormData] = useState({});
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:5002/api/vendors/${vendorId}/bio`).then((res) => {
+    axios.get(`url/api/vendors/${vendorId}/bio`).then((res) => {
       const vendorData = res.data.vendor;
       setVendor(vendorData);
       setFormData({
@@ -63,7 +64,7 @@ const VendorProfile = () => {
   const handleSave = () => {
     console.log("Saving vendor with data:", formData);
     axios
-      .put(`http://localhost:5002/api/vendors/${vendorId}`, formData)
+      .put(`url/api/vendors/${vendorId}`, formData)
       .then((res) => {
         setVendor(res.data.vendor);
         setIsEditing(false);
