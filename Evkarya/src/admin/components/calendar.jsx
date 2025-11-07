@@ -6,7 +6,7 @@ import { StaticDateTimePicker } from '@mui/x-date-pickers/StaticDateTimePicker';
 import dayjs from 'dayjs';
 
 export default function Calendar() {
-   const url=https://evkarya-backend-iwsx.onrender.com;
+   const url="https://evkarya-backend-iwsx.onrender.com";
   const [unavailableDates, setUnavailableDates] = useState([]);
   const [loading, setLoading] = useState(true);
   const vendorId = localStorage.getItem('vendorId');  // Get the vendor ID from localStorage or session
@@ -16,7 +16,7 @@ export default function Calendar() {
 
     // Fetch Vendor Profile with Posts and Services
     axios
-      .get(`url/api/vendors/${vendorId}`, {
+      .get(`${url}/api/vendors/${vendorId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
