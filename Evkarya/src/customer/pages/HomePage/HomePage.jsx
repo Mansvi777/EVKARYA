@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer';
 import axios from 'axios';
 
 const HomePage = () => {
-    const url=https://evkarya-backend-iwsx.onrender.com;
+    const url="https://evkarya-backend-iwsx.onrender.com";
     // State to store data for each category
     const [bridalWear, setBridalWear] = useState([]);
     const [jewelry, setJewelry] = useState([]);
@@ -17,7 +17,7 @@ const HomePage = () => {
             try {
                 const encodedCategory = encodeURIComponent(category);
                 const res = await axios.get(
-                    `url/api/posts?category=${encodedCategory}&limit=10`
+                    `${url}/api/posts?category=${encodedCategory}&limit=10`
                 );
                 setter(res.data);
             } catch (err) {
