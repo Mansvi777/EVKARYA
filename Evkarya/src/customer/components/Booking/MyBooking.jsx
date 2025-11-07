@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
 const MyBookings = () => {
+  const url=https://evkarya-backend-iwsx.onrender.com;
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const MyBookings = () => {
         }
 
         const decoded = jwtDecode(token);
-        const res = await axios.get(`http://localhost:5002/api/bookings/user/${decoded.id}`);
+        const res = await axios.get(`url/api/bookings/user/${decoded.id}`);
         setBookings(res.data.bookings);
       } catch (error) {
         console.error(error);
