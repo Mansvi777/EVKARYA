@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'; // 🔁 Link imported
 import axios from 'axios';
 
 export default function CategoryPage() {
+  const url=https://evkarya-backend-iwsx.onrender.com;
   const { categoryName } = useParams();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +12,7 @@ export default function CategoryPage() {
     async function fetchCategoryPosts() {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:5002/api/posts?category=${encodeURIComponent(categoryName)}&limit=10`);
+        const response = await axios.get(`url/api/posts?category=${encodeURIComponent(categoryName)}&limit=10`);
 
         setPosts(response.data);
         setLoading(false);
