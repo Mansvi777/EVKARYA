@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
-  const url=https://evkarya-backend-iwsx.onrender.com;
+  const url="https://evkarya-backend-iwsx.onrender.com";
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post('url/api/auth/login', formData);
+      const res = await axios.post('${url}/api/auth/login', formData);
       alert(res.data.message);
 
       const { token, user } = res.data;
