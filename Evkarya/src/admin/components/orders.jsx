@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const OrdersTable = () => {
-   const url=https://evkarya-backend-iwsx.onrender.com;
+   const url="https://evkarya-backend-iwsx.onrender.com";
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -79,7 +79,7 @@ const OrdersTable = () => {
 
     const fetchOrders = async () => {
       try {
-        const res = await axios.get(`url/api/orders/${vendorId}`, {
+        const res = await axios.get(`${url}/api/orders/${vendorId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           }
@@ -103,7 +103,7 @@ const OrdersTable = () => {
     const token = localStorage.getItem("userToken");
     try {
       const res = await axios.delete(
-        `url/api/orders/cancel/${orderId}`,
+        `${url}/api/orders/cancel/${orderId}`,
         { status: 'cancelled' },
         {
           headers: {
@@ -131,7 +131,7 @@ const OrdersTable = () => {
     const token = localStorage.getItem("userToken");
     try {
       const res = await axios.put(
-        `url/api/orders/confirm/${orderId}`,
+        `${url}/api/orders/confirm/${orderId}`,
         {},
         {
           headers: {
@@ -164,7 +164,7 @@ const OrdersTable = () => {
     const token = localStorage.getItem("userToken");
     try {
       const res = await axios.delete(
-        `url/api/orders/cancel/${orderId}`,
+        `${url}/api/orders/cancel/${orderId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -193,7 +193,7 @@ const OrdersTable = () => {
     const token = localStorage.getItem("userToken");
     try {
       const res = await axios.put(
-        `url/api/orders/update/${orderId}`,
+        `${url}/api/orders/update/${orderId}`,
         { status: 'completed' },
         {
           headers: {
