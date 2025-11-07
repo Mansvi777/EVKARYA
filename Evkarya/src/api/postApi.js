@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // ✅ Base URL tu apne hisaab se change kar lena
-const API = axios.create({ baseURL: "http://localhost:5002" });
+const API = axios.create({ baseURL: "https://evkarya-backend-iwsx.onrender.com" });
 
 export const fetchCategories = () => API.get("/api/post/categories");
 export const fetchPostsByCategory = (category) =>
