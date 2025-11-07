@@ -58,6 +58,7 @@ const styles = {
 };
 
 const Register = () => {
+  const url=https://evkarya-backend-iwsx.onrender.com;
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
@@ -86,7 +87,7 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5002/api/auth/register', formData);
+      const res = await axios.post('url/api/auth/register', formData);
       alert(res.data.message);
 
       if (formData.role === 'vendor') {
