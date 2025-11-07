@@ -4,7 +4,7 @@ import axios from "axios";
 import { Mail } from "lucide-react";
 
 const VendorProfile = () => {
-  const url=https://evkarya-backend-iwsx.onrender.com;
+  const url="https://evkarya-backend-iwsx.onrender.com";
   const { vendorId } = useParams();
   const navigate = useNavigate();
   const [vendor, setVendor] = useState(null);
@@ -15,7 +15,7 @@ const VendorProfile = () => {
   useEffect(() => {
     const fetchVendor = async () => {
       try {
-        const res = await axios.get(`url/api/vendors/${vendorId}/bio`);
+        const res = await axios.get(`${url}/api/vendors/${vendorId}/bio`);
         setVendor(res.data.vendor);
       } catch (err) {
         setError("Failed to fetch vendor details.");
@@ -24,7 +24,7 @@ const VendorProfile = () => {
 
     const fetchVendorProducts = async () => {
       try {
-        const res = await axios.get(`url/api/posts/vendor/${vendorId}`);
+        const res = await axios.get(`${url}/api/posts/vendor/${vendorId}`);
 setProducts(res.data.data || []);
 
       } catch (err) {
