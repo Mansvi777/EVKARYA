@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const AddPost = () => {
+  const url=https://evkarya-backend-iwsx.onrender.com;
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
@@ -51,7 +52,7 @@ const AddPost = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5002/api/posts/", // Ensure this URL is correct
+        "url/api/posts/", // Ensure this URL is correct
         newPostData,
         {
           headers: {
