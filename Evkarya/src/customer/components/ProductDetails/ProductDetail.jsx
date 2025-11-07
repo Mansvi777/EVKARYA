@@ -4,6 +4,7 @@ import axios from "axios";
 import {jwtDecode }from "jwt-decode";
 
 const ProductDetail = () => {
+  const url=https://evkarya-backend-iwsx.onrender.com;
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -26,7 +27,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`http://localhost:5002/api/posts/${id}`);
+        const res = await axios.get(`url/api/posts/${id}`);
         setPost(res.data.post);
       } catch (err) {
         setError("Failed to fetch product details.");
@@ -91,7 +92,7 @@ const ProductDetail = () => {
     try {
       setBookingLoading(true);
       const response = await axios.post(
-        "http://localhost:5002/api/orders/create",
+        "url/api/orders/create",
         payload,
         { headers: { "Content-Type": "application/json" } }
       );
