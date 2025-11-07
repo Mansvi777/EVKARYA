@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Posts = () => {
-   const url=https://evkarya-backend-iwsx.onrender.com;
+   const url="https://evkarya-backend-iwsx.onrender.com";
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ const Posts = () => {
 
     if (token && vendorId) {
       axios
-        .get(`url/api/posts/vendor/${vendorId}`, {
+        .get(`${url}/api/posts/vendor/${vendorId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -35,7 +35,7 @@ const Posts = () => {
 
     if (token) {
       try {
-        await axios.delete(`url/api/posts/${postId}`, {
+        await axios.delete(`${url}/api/posts/${postId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setPosts(posts.filter(post => post._id !== postId));
@@ -51,7 +51,7 @@ const Posts = () => {
     if (token) {
       try {
         const response = await axios.put(
-          `url/api/posts/${postId}`,
+          `${url}/api/posts/${postId}`,
           updatedData,
           {
             headers: {
